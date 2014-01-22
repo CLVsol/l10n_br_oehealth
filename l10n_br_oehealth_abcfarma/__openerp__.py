@@ -28,7 +28,6 @@
     ''',
     'images': [],
     'depends': ['oehealth_medicament',
-                'oehealth_medicament_mng',
                 ],
     'data': ['security/ir.model.access.csv'
              ],
@@ -36,7 +35,6 @@
     'test': [],
     'init_xml': ['oehealth_abcfarma_view.xml',
                  'oehealth_medicament_view.xml',
-                 'oehealth_medicament_mng_view.xml',
                  ],
     'test': [],
     'update_xml': [],
