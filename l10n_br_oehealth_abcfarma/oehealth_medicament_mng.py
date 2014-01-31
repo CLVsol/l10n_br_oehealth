@@ -17,30 +17,13 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.        #
 ################################################################################
 
-{
-    'name': 'OpenERP Health: ABCFARMA',
-    'version': '1.0.0',
-    'author': 'Carlos Eduardo Vercelino - CLVsol',
-    'category': 'Generic Modules/Others',
-    'license': 'AGPL-3',
-    'website': 'http://oehealth.org',
-    'description': '''
-    ''',
-    'images': [],
-    'depends': ['oehealth_medicament',
-                'oehealth_medicament_mng',
-                ],
-    'data': ['security/ir.model.access.csv'
-             ],
-    'demo': [],
-    'test': [],
-    'init_xml': ['oehealth_abcfarma_view.xml',
-                 'oehealth_medicament_view.xml',
-                 'oehealth_medicament_mng_view.xml',
-                 ],
-    'test': [],
-    'update_xml': [],
-    'installable': True,
-    'active': False,
-    'css': [],
-}
+from openerp.osv import orm, fields
+
+class oehealth_medicament_mng(orm.Model):
+    _inherit = 'oehealth.medicament_mng'
+
+    _columns = {
+        'abcfarma_id': fields.many2one('oehealth.abcfarma', string='ABCFARMA Medicament'),
+    }
+    
+oehealth_medicament_mng()

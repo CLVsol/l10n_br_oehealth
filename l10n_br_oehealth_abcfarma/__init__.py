@@ -19,3 +19,4 @@
 
 import oehealth_abcfarma
 import oehealth_medicament
+import oehealth_medicament_mng

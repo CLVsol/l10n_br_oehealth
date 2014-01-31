@@ -24,7 +24,15 @@ class oehealth_abcfarma(osv.Model):
     _name = 'oehealth.abcfarma'
     _description = "ABCFARMA"
 
+    def _compute_name(self, cr, uid, ids, field_name, arg, context={}):
+        result = {}
+        for r in self.browse(cr, uid, ids, context=context):
+            result[r.id] = '[' + r.med_abc + '] ' + r.med_des + ' (' + r.med_princi + ') ' + r.med_apr + ' - ' + r.lab_nom + \
+                           ' [' + r.med_barra + '] '
+        return result
+
     _columns = {
+        'name' : fields.function(_compute_name, method=True, type='char', size=128, string='ABCFarma Description',),
 		'med_abc': fields.char(size=9, string='MED_ABC'),
 		'med_ctr': fields.char(size=1, string='MED_CTR'),
 		'med_lab': fields.char(size=6, string='MED_LAB'),
@@ -84,5 +92,13 @@ class oehealth_abcfarma(osv.Model):
     _defaults = {
         'status': 'U',
     }
-    
+
+    '''def name_get(self, cr, uid, ids, context=None):
+	    if not ids:
+	        return []
+	    res = []
+	    for r in self.read(cr, uid, ids, ['id', 'med_abc', 'med_des', 'med_princi', 'med_apr', 'lab_nom'], context):
+	    	res.append((r['id'], r['med_abc'] + ' (' + r['med_des'] + ' (' + r['med_princi'] + ') ' + r['med_apr'] + ' - ' + r['lab_nom'] + ')'))
+	    return res'''
+
 oehealth_abcfarma()

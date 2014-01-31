@@ -2,6 +2,26 @@
 <openerp>
     <data>
 
+        <record id="view_oehealth_abcfarma_tree" model="ir.ui.view">
+            <field name="name">oehealth.abcfarma.tree</field>
+            <field name="model">oehealth.abcfarma</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="ABCFARMA">
+                    <field name="name"/>
+                    <field name="med_abc"/>
+                    <field name="med_ctr"/>
+                    <field name="med_lab"/>
+                    <field name="lab_nom"/>
+                    <field name="med_des"/>
+                    <field name="med_apr"/>
+                    <field name="med_barra"/>
+                    <field name="from"/>
+                    <field name="excluded"/>
+                </tree>
+            </field>
+        </record>
+        
         <record id="view_oehealth_abcfarma_form" model="ir.ui.view">
             <field name="name">ABCFARMA</field>
             <field name="model">oehealth.abcfarma</field>
@@ -9,6 +29,7 @@
                 <form string="ABCFARMA" version="7.0">
                     <sheet>
                         <group>
+                            <field name="name"/>
                             <field name="med_abc" default_focus="1"/>
                             <field name="med_ctr"/>
                             <field name="med_lab"/>
@@ -73,37 +94,19 @@
             </field>
         </record>
         
-        <record id="view_oehealth_abcfarma_tree" model="ir.ui.view">
-            <field name="name">oehealth.abcfarma.tree</field>
-            <field name="model">oehealth.abcfarma</field>
-            <field name="priority" eval="8" />
-            <field name="arch" type="xml">
-                <tree string="ABCFARMA">
-                    <field name="med_abc" default_focus="1"/>
-                    <field name="med_ctr"/>
-                    <field name="med_lab"/>
-                    <field name="lab_nom"/>
-                    <field name="med_des"/>
-                    <field name="med_apr"/>
-                    <field name="med_barra"/>
-                    <field name="from"/>
-                    <field name="excluded"/>
-                </tree>
-            </field>
-        </record>
-        
         <record id="view_oehealth_abcfarma_search" model="ir.ui.view">
             <field name="name">oehealth.abcfarma.search</field>
             <field name="model">oehealth.abcfarma</field>
             <field name="priority" eval="8" />
             <field name="arch" type="xml">
                 <search string="ABCFARMA">
-                    <field name="med_abc" default_focus="1"/>
+                    <field name="med_abc"/>
                     <field name="med_ctr"/>
                     <field name="med_lab"/>
                     <field name="lab_nom"/>
                     <field name="med_des"/>
                     <field name="med_apr"/>
+                    <field name="med_princi"/>
                     <field name="med_barra"/>
                     <field name="from"/>
                     <field name="excluded"/>
